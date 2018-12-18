@@ -114,10 +114,10 @@ void init_pg(std::string libname)
 
 #if defined(__linux__) || defined(__APPLE__)
    void* handle = nullptr;
-   handle = dlopen(libname.c_str(), RTLD_LAZY | RTLD_GLOBAL);
+   handle = dlopen("/usr/lib/x86_64-linux-gnu/libpq.so", RTLD_LAZY | RTLD_GLOBAL);
 #else
     HINSTANCE handle = nullptr;
-    handle = LoadLibrary(libname.c_str());
+    handle = LoadLibrary("/usr/lib/x86_64-linux-gnu/libpq.so");
 #endif
 
    if (!handle) {
